@@ -15,8 +15,11 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
@@ -24,8 +27,6 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      # Vite встраивает VITE_* в бандл на этапе сборки, поэтому они нужны именно здесь.
-      # Значения берутся из Variables или Secrets репозитория — подойдёт любой вариант.
       - name: Build
         env:
           VITE_FAVORIT_API_URL: ${{ vars.VITE_FAVORIT_API_URL || secrets.VITE_FAVORIT_API_URL }}
@@ -43,13 +44,5 @@ jobs:
       - uses: actions/upload-pages-artifact@v4
         with:
           path: dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
       - id: deployment
         uses: actions/deploy-pages@v4
