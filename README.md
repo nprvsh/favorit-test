@@ -4,6 +4,8 @@
 
 Стек: React, Redux Toolkit (RTK Query), Bootstrap, Vite.
 
+Ссылка на демо: https://nprvsh.github.io/favorit-test/
+
 ## Запуск
 
 Нужно создать локально файл `.env` с двумя параметрами: адрес API `VITE_FAVORIT_API_URL` и ключ покупателя `VITE_FAVORIT_KEY`. В `.env.example` лежит демо-ключ из документации, с ним всё работает. 
