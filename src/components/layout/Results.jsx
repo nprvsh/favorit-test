@@ -12,7 +12,7 @@ export default function Results() {
           <BrandList />
         </div>
       </div>
-      <div className="col-lg-8" ref={offersRef}>
+      <div className="col-lg-8 scroll-anchor" ref={offersRef}>
         <OffersPanel showSelectHint={hasBrands} />
       </div>
     </div>

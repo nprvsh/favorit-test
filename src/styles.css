@@ -92,6 +92,10 @@ body {
   background: var(--bs-primary-bg-subtle);
 }
 
+.scroll-anchor {
+  scroll-margin-top: 1rem;
+}
+
 @media (min-width: 992px) {
   .sticky-lg {
     position: sticky;
