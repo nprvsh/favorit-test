@@ -1,0 +1,146 @@
+:root {
+  --app-radius: 0.75rem;
+  --app-shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 2px 8px rgba(16, 24, 40, 0.06);
+}
+
+body {
+  background: #f4f6fa;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.min-w-0 {
+  min-width: 0;
+}
+
+.app-logo {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.625rem;
+  background: var(--bs-primary);
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+.app-card {
+  background: #fff;
+  border: 1px solid var(--bs-border-color-translucent);
+  border-radius: var(--app-radius);
+  box-shadow: var(--app-shadow);
+}
+
+.search-field {
+  position: relative;
+}
+.search-field .form-control {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+.search-icon,
+.search-action {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.search-icon {
+  left: 1.1rem;
+  color: var(--bs-secondary-color);
+  pointer-events: none;
+}
+.search-action {
+  right: 0.75rem;
+}
+
+.section-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--bs-secondary-color);
+}
+
+.brand-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  min-width: 0;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  background: #fff;
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--app-radius);
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s,
+    background-color 0.15s;
+}
+.brand-item:hover {
+  border-color: var(--bs-primary-border-subtle);
+  box-shadow: var(--app-shadow);
+}
+.brand-item:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+}
+.brand-item.is-active {
+  border-color: var(--bs-primary);
+  background: var(--bs-primary-bg-subtle);
+}
+
+@media (min-width: 992px) {
+  .sticky-lg {
+    position: sticky;
+    top: 1rem;
+  }
+}
+
+.offer-card {
+  min-width: 0;
+  overflow: hidden;
+}
+.offer-card.is-original {
+  border-left: 4px solid var(--bs-primary);
+}
+.offer-card.is-muted {
+  background: var(--bs-tertiary-bg);
+  box-shadow: none;
+}
+.offer-table {
+  font-size: 0.875rem;
+}
+.offer-table th {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--bs-secondary-color);
+  background: var(--bs-tertiary-bg);
+}
+.offer-table th:first-child,
+.offer-table td:first-child {
+  padding-left: 1rem;
+}
+.offer-table th:last-child,
+.offer-table td:last-child {
+  padding-right: 1rem;
+}
+
+.skeleton {
+  display: block;
+  width: 100%;
+  height: 4rem;
+  border-radius: var(--app-radius);
+}
+.empty-state-text {
+  max-width: 28rem;
+}
+.empty-state .bi {
+  font-size: 2.5rem;
+  color: var(--bs-primary);
+  opacity: 0.6;
+}
