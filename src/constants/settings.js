@@ -11,3 +11,4 @@ export const VISIBLE_OFFERS = 3;
 export const OFFERS_PAGE_SIZE = 20;
 
 export const MOBILE_MEDIA_QUERY = '(max-width: 991.98px)';
+export const SCROLL_TOP_OFFSET = 600;

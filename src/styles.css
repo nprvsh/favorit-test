@@ -130,6 +130,20 @@ body {
   padding-right: 1rem;
 }
 
+.scroll-top {
+  position: fixed;
+  right: 1rem;
+  bottom: calc(1rem + env(safe-area-inset-bottom));
+  z-index: 1030;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  font-size: 1.25rem;
+  box-shadow: var(--app-shadow);
+}
+
 .skeleton {
   display: block;
   width: 100%;

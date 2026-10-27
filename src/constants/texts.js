@@ -65,6 +65,7 @@ export const TEXTS = {
     loading: 'Загрузка…',
     pieces: (count) => `${count} шт.`,
     noValue: '—',
+    scrollTop: 'Наверх',
   },
 
   errors: {

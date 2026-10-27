@@ -1,6 +1,7 @@
 import { TEXTS } from '@/constants/texts';
 import { useOffersView } from '@/hooks/useOffersView';
 import Section from '@/components/common/Section';
+import ScrollTopButton from '@/components/common/ScrollTopButton';
 import InStockSwitch from './InStockSwitch';
 import OfferCard from './OfferCard';
 import OffersFooter from './OffersFooter';
@@ -34,6 +35,7 @@ export default function OffersResults() {
           hasNoAnalogues={hasNoAnalogues}
         />
       </div>
+      <ScrollTopButton />
     </Section>
   );
 }
