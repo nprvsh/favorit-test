@@ -25,10 +25,20 @@ jobs:
           cache: npm
       - run: npm ci
       # Vite встраивает VITE_* в бандл на этапе сборки, поэтому они нужны именно здесь.
-      - run: npm run build
+      # Значения берутся из Variables или Secrets репозитория — подойдёт любой вариант.
+      - name: Build
         env:
-          VITE_FAVORIT_API_URL: ${{ vars.VITE_FAVORIT_API_URL }}
-          VITE_FAVORIT_KEY: ${{ secrets.VITE_FAVORIT_KEY }}
+          VITE_FAVORIT_API_URL: ${{ vars.VITE_FAVORIT_API_URL || secrets.VITE_FAVORIT_API_URL }}
+          VITE_FAVORIT_KEY: ${{ vars.VITE_FAVORIT_KEY || secrets.VITE_FAVORIT_KEY }}
+        run: |
+          for name in VITE_FAVORIT_API_URL VITE_FAVORIT_KEY; do
+            if [ -z "${!name}" ]; then
+              echo "::error::$name не задана: добавьте её в Settings → Secrets and variables → Actions"
+              missing=1
+            fi
+          done
+          [ -z "$missing" ] || exit 1
+          npm run build
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
